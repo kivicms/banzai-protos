@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/go-bnz-proto.iml" filepath="$PROJECT_DIR$/.idea/go-bnz-proto.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/banzai-protos.iml" filepath="$PROJECT_DIR$/.idea/banzai-protos.iml" />
     </modules>
   </component>
 </project>
