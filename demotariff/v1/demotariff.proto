@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+package demotariff;
+
+option go_package = "github.com/kivicms/banzai-protos/gen/go/demotariff/v1;demotariffv1";
+
+// Запрос для декремента по user_id
+message DecrementClosedLotsRequest {
+  int64 user_id = 1;
+}
+
+// Ответ с обновлённым счётчиком лотов
+message DecrementClosedLotsResponse {
+  int32 closed_lots = 1; // или другая структура, если нужно больше данных
+}
+
+message DecrementClosedPagesRequest {
+  int64 user_id = 1;
+}
+
+message DecrementClosedPagesResponse {
+  int32 closed_pages = 1;
+}
+
+message DecrementTranslatesRequest {
+  int64 user_id = 1;
+}
+
+message DecrementTranslatesResponse {
+  int32 translates = 1;
+}
+
+message FinishDemoTariffRequest {
+  int64 user_id = 1;
+}
+
+message FinishDemoTariffResponse {
+  bool success = 1;
+}
+
+service DemoTariffService {
+  rpc DecrementClosedLots(DecrementClosedLotsRequest) returns (DecrementClosedLotsResponse);
+  rpc DecrementClosedPages(DecrementClosedPagesRequest) returns (DecrementClosedPagesResponse);
+  rpc DecrementTranslates(DecrementTranslatesRequest) returns (DecrementTranslatesResponse);
+  rpc FinishDemoTariff(FinishDemoTariffRequest) returns (FinishDemoTariffResponse);
+}
+

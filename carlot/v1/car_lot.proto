@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package carlot;
+
+option go_package = "github.com/kivicms/banzai-protos/gen/go/carlot/v1;carlotv1";
+
+message PhotosByLotIDsRequest {
+  repeated string ids = 1; // UUID как строки
+}
+
+message PhotosByLotIDsResponse {
+  repeated string photos = 1;
+}
+
+message CarLotByLotIDRequest {
+  string id = 1;
+  int64 userID = 2;
+  string lang = 3;
+}
+
+message CarLotByIDResponse {
+  string jsonData = 1;
+}
+
+message CarLotsByLotIDsRequest {
+  repeated string ids = 1; // UUID как строки
+  string lang = 2;
+}
+
+message CarLotsByIDsResponse {
+  string jsonData = 1;
+}
+
+
+// gRPC-сервис
+service CarLotService {
+  rpc GetCarLotByID(CarLotByLotIDRequest) returns (CarLotByIDResponse);
+  rpc GetCarLotsByIDs(CarLotsByLotIDsRequest) returns (CarLotsByIDsResponse);
+  rpc GetPhotosByLotIDs(PhotosByLotIDsRequest) returns (PhotosByLotIDsResponse);
+}
