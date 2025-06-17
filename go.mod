@@ -1,3 +1,3 @@
-module go-bnz-proto
+module github.com/kivicms/banzai-protos
 
 go 1.24
